@@ -1,3 +1,10 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
 .page-header {
   background-color: #c25100;
   margin-top: 0;
@@ -70,6 +77,44 @@ h4 {
   background-color: #c25100;
 }
 
-.trash-icon {
-    fill: #000000;
-  }
+.trash-icon svg {
+  fill: #000000;
+}
+
+.search-form {
+  display: flex;
+  height: 34px;
+  flex: 2;
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  padding: 6px 12px;
+  flex-grow: 1;
+}
+
+.search-button {
+  background-color: #c25100;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  color: #ffffff;
+  background-color: #c25100;
+}
+
+.search-button svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}

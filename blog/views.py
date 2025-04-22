@@ -45,9 +45,27 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, "blog/post_edit.html", {"form": form})
 
+
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         post.delete()
         return redirect("post_list")
     return render(request, "blog/post_delete.html", {"post": post})
+
+
+def post_search(request):
+    query = request.GET.get("q", "")
+
+    if query:
+        posts = Post.objects.filter(published_date__isnull=False).filter(
+            title__icontains=query
+        ) | Post.objects.filter(published_date__isnull=False).filter(
+            text__icontains=query
+        ).order_by("-published_date")
+    else:
+        posts = Post.objects.filter(published_date__isnull=False).order_by(
+            "-published_date"
+        )
+
+    return render(request, "blog/post_list.html", {"posts": posts, "query": query})

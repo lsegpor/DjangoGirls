@@ -10,6 +10,7 @@ urlpatterns = (
         path('post/new/', views.post_new, name='post_new'),
         path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
         path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
+        path('search/', views.post_search, name='post_search'),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
