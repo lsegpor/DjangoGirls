@@ -5,5 +5,10 @@
   <time class="date"> {{ post.published_date }} </time>
   <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
   <p>{{ post.text|linebreaksbr }}</p>
+  {% if user.is_authenticated %}
+  <a href="{% url 'post_delete' pk=post.pk %}" class="trash-icon">
+    {% include './icons/trash.svg' %}
+  </a>
+  {% endif %}
 </article>
 {% endfor %} {% endblock %}
